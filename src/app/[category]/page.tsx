@@ -1,34 +1,34 @@
 // app/[category]/page.tsx
-import Card from '@/components/ui/Card';
-import { getCategoryProducts } from '@/lib/api';
+import Card from "@/components/ui/Card";
+import { getCategoryProducts } from "@/lib/api";
+import { CategoryPageProps } from "@/lib/types";
 
 export async function generateStaticParams() {
-  return [{ category: 'mens-clothing' }, { category: 'womens-clothing' }];
+  return [{ category: "mens-clothing" }, { category: "womens-clothing" }];
 }
 
-interface CategoryPageProps {
-  params: { category: string };
-}
-
-// Ensure generateMetadata is async and handles params correctly
-export async function generateMetadata({ params }: CategoryPageProps) {
+export async function generateMetadata(props: { params: CategoryPageProps }) {
+  const params = await props.params;
   const categoryTitle =
-    params.category === 'mens-clothing' ? "Men's Clothing" : "Women's Clothing";
+    params.category === "mens-clothing" ? "Men's Clothing" : "Women's Clothing";
 
   return {
-    title: `Modern Walk - ${categoryTitle}`, // Dynamic title for category pages
+    title: `Modern Walk - ${categoryTitle}`,
     description: `Browse ${categoryTitle} at Modern Walk.`,
   };
 }
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage(props: {
+  params: CategoryPageProps;
+}) {
+  const params = await props.params;
   const apiCategory =
-    params.category === 'mens-clothing' ? "men's clothing" : "women's clothing";
+    params.category === "mens-clothing" ? "men's clothing" : "women's clothing";
 
   const products = await getCategoryProducts(apiCategory);
 
   const categoryTitle =
-    params.category === 'mens-clothing' ? "Men's Clothing" : "Women's Clothing";
+    params.category === "mens-clothing" ? "Men's Clothing" : "Women's Clothing";
 
   return (
     <div className="space-y-8">
@@ -43,4 +43,4 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 }
 
 // Revalidate every 24 hours (ISR)
-export const revalidate = 86400; 
+export const revalidate = 86400;
