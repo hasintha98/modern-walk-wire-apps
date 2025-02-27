@@ -14,7 +14,7 @@ export default function Card({ product }: CardProps) {
         className="w-full h-48 object-cover"
         width={300}
         height={300}
-        priority={false} // Optional: Set to `true` for images above the fold
+        priority={false} 
       />
       <div
         className={`card-body  text-center rounded-t-xl p-4 ${

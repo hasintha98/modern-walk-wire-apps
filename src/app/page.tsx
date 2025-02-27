@@ -4,7 +4,7 @@ import CategoryButton from '@/components/layout/CategoryButton';
 import { getFlashSaleProducts } from '@/lib/api';
 
 export default async function Home() {
-  const products = await getFlashSaleProducts(); // Fetch 4 latest products for Flash Sale
+  const products = await getFlashSaleProducts(); 
 
   return (
     <div className="space-y-8">
