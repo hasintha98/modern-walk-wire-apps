@@ -1,9 +1,5 @@
 import Image from "next/image";
-import { Product } from "../../lib/types";
-
-interface CardProps {
-  product: Product;
-}
+import { CardProps } from "../../lib/types";
 
 export default function Card({ product }: CardProps) {
   return (

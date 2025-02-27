@@ -1,4 +1,3 @@
-// app/layout.tsx
 import { ReactNode } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css'; 

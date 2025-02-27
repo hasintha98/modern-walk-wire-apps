@@ -1,4 +1,3 @@
-// app/page.tsx
 import Card from '@/components/ui/Card';
 import CategoryButton from '@/components/layout/CategoryButton';
 import { getFlashSaleProducts } from '@/lib/api';

@@ -1,4 +1,3 @@
-// app/[category]/page.tsx
 import Card from "@/components/ui/Card";
 import { getCategoryProducts } from "@/lib/api";
 import { CategoryPageProps } from "@/lib/types";
